@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace SimulationRemonteeSki
 {
-    class StructureEvenement
+    struct StructureEvenement
     {
+        public int secteur;                 //Si 0 entrée dans la file d'attente
+        public DateTime dateEvenement;
+        public int nombrePersonne;          //Nombre de personnes en sortie
     }
 }

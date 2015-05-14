@@ -98,30 +98,17 @@ namespace SimulationRemonteeSki
             double valeurMin = 0d;
             tailleIntervalle = (valeurMax - valeurMin) / (double)NombreClasse;
             int[] nbValeurIntervalle = new int[NombreClasse];
-            if (!IsProcessusPoisson)
+                
+            for (int i = 0; i < NombreClasse; i++)
             {
-                for (int i = 0; i < NombreClasse; i++)
+                nbValeurIntervalle[i] = 0;
+                foreach (double d in tabD)
                 {
-                    nbValeurIntervalle[i] = 0;
-                    foreach (double d in tabD)
-                    {
-                        if (d <= tailleIntervalle * (i + 1) && d > tailleIntervalle * i)
-                            nbValeurIntervalle[i]++;
-                    }
+                    if (d <= tailleIntervalle * (i + 1) && d > tailleIntervalle * i && nbValeurIntervalle[i] < 1)
+                        nbValeurIntervalle[i]++;
                 }
             }
-            else
-            {
-                for (int i = 0; i < NombreClasse; i++)
-                {
-                    nbValeurIntervalle[i] = 0;
-                    foreach (double d in tabD)
-                    {
-                        if (d <= tailleIntervalle * (i + 1) && d > tailleIntervalle * i && nbValeurIntervalle[i] < 1)
-                            nbValeurIntervalle[i]++;
-                    }
-                }
-            }
+
             NombreValeurIntervalle = nbValeurIntervalle;
             Rafraichir();
         }
