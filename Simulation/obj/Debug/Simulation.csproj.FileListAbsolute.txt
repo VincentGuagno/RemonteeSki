@@ -4,3 +4,9 @@ E:\Documents\Visual Studio\Simulation\Simulation\Simulation\bin\Debug\Simulation
 E:\Documents\Visual Studio\Simulation\Simulation\Simulation\bin\Debug\Simulation.pdb
 E:\Documents\Visual Studio\Simulation\Simulation\Simulation\obj\Debug\Simulation.exe
 E:\Documents\Visual Studio\Simulation\Simulation\Simulation\obj\Debug\Simulation.pdb
+H:\Documents\GitHub\RemoteeSki\Simulation\bin\Debug\Simulation.exe.config
+H:\Documents\GitHub\RemoteeSki\Simulation\obj\Debug\Simulation.exe
+H:\Documents\GitHub\RemoteeSki\Simulation\obj\Debug\Simulation.pdb
+H:\Documents\GitHub\RemoteeSki\Simulation\bin\Debug\Simulation.exe
+H:\Documents\GitHub\RemoteeSki\Simulation\bin\Debug\Simulation.pdb
+H:\Documents\GitHub\RemoteeSki\Simulation\obj\Debug\Simulation.csprojResolveAssemblyReference.cache

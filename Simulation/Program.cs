@@ -12,20 +12,22 @@ namespace SimulationRemonteeSki
         static double dateDeFin = 1.0e7;
         static double tempsMoyenEntree = 3.0; // Temps moyen d'arrivée
         static double tempsMoyenSortie = 4.0; // Temps de service moyen
+        static double temps = 0.0; // Temps actuel
+        static double dateEntree = 0.0; // Temps avant le prochain évènement d'entrée 
+        static double dateSortie = dateDeFin; // Temps avant le prochain évènement de sortie
+        static long nbFileAttente = 0; // Nombre de personnes dans la file d'attente
+        static double nbSortieSysteme = 0.0; // Nombre de personnes sortie du système
+        static double aireNbPersonneSysteme = 0.0; // Nombre de personne dans le système
+        static double tempsDernierEvenement = temps; // Date du dernier evenement
+        static double tempsDernierTraitement; // Date de dernier traitement
+        static double debit; // Débit
+        static double nombrePersonnesMoyen; // Nombre moyen de personne dans le système
+        static double tempsMoyenSysteme; //Temps moyen passé dans le système
+
         static void Main(string[] args)
         {
             rand = new Random();
-            double temps = 0.0; // Temps actuel
-            double dateEntree = 0.0; // Temps avant le prochain évènement d'entrée 
-            double dateSortie = dateDeFin; // Temps avant le prochain évènement de sortie
-            long nbFileAttente = 0; // Nombre de personnes dans la file d'attente
-            double nbSortieSysteme = 0.0; // Nombre de personnes sortie du système
-            double aireNbPersonneSysteme = 0.0; // Nombre de personne dans le système
-            double tempsDernierEvenement = temps; // Date du dernier evenement
-            double tempsDernierTraitement; // Date de dernier traitement
-            double debit; // Débit
-            double nombrePersonnesMoyen; // Nombre moyen de personne dans le système
-            double tempsMoyenSysteme; //Temps moyen passé dans le système
+
 
             while (temps < dateDeFin)
             {
