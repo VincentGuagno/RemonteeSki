@@ -29,13 +29,13 @@ namespace SimulationRemonteeSki
             if (rand == null)
                 rand = new Random();
 
-            if (dateEntree < dateSortie) // Arrivée
+            if (dateEntree > dateSortie && nbFileAttente > 0) // Arrivée
             {
-                ProcessusEntree();
+                ProcessusSortie();
             }
             else // Sortie
             {
-                ProcessusSortie();
+                ProcessusEntree();
             }
 
             debit = nbSortieSysteme / temps; // Debit de sortie
@@ -43,35 +43,27 @@ namespace SimulationRemonteeSki
             tempsMoyenSysteme = nombrePersonnesMoyen / debit; // Temps moyen passé dans le système
         }
 
-        private static void ProcessusSortie()
+        private static StructureEvenement ProcessusSortie()
         {
             temps = dateSortie;
             aireNbPersonneSysteme = aireNbPersonneSysteme + nbFileAttente * (temps - tempsDernierEvenement); // Mise à jour de l'aire sous la courbe "aireNbPersonneSysteme"
             nbFileAttente--;
             tempsDernierEvenement = temps;
             nbSortieSysteme++;
-            if (nbFileAttente > 0)
-            {
-                dateSortie = temps + tempsMoyenSortie;
-            }
-            else
-            {
-                dateSortie = dateDeFin;
-            }
+            dateSortie = temps + tempsMoyenSortie;
+            return new StructureEvenement(1, temps, 1);
+            
         }
 
-        private static void ProcessusEntree()
+        private static StructureEvenement ProcessusEntree()
         {
             temps = dateEntree;
             aireNbPersonneSysteme = aireNbPersonneSysteme + nbFileAttente * (temps - tempsDernierEvenement); // Mise à jour de l'aire sous la courbe "aireNbPersonneSysteme"
             nbFileAttente++;
             tempsDernierEvenement = temps;
             dateEntree = temps + expntl(tempsMoyenEntree);
-            if (nbFileAttente == 1)
-            {
-                tempsDernierTraitement = temps;
-                dateSortie = temps + tempsMoyenSortie;
-            }
+            return new StructureEvenement(0, temps, 1);
+
         }
 
         static double expntl(double x)
