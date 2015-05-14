@@ -44,6 +44,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SimulationSysteme.cs" />
+    <Compile Include="SimulationSystemeMultiples.cs" />
     <Compile Include="StructureEvenement.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
