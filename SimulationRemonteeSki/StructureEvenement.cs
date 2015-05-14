@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SimulationRemonteeSki
 {
-    public struct StructureEvenement : IEnumerable<StructureEvenement>
+    public struct StructureEvenement 
     {
         public int secteur;                 //Si 0 entrée dans la file d'attente
         public double dateEvenement;

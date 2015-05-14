@@ -15,22 +15,30 @@ namespace SimulationRemonteeSki
         /// <summary>
         /// Nombre de pixel par unité de temps
         /// </summary>
-        [Description("Valeur de la hauteur sur l'axe vertical"), Category("Diagram")]
+        [Description("Nombre de pixel par unitées de temps"), Category("Diagram")]
         public int PixelParUT { get; set; }
 
-        // TODO Vincent Guagno : A supprimer 
-        [Description("Valeur de la hauteur sur l'axe vertical"), Category("Diagram")]
+        /// <summary>
+        /// Valeur maximale sur l'axe vertical
+        /// </summary>
+        [Description("Valeur maximale sur l'axe vertical"), Category("Diagram")]
         public int Hauteur { get; set; }
 
         [Description("Definition sur l'axe vertical (en entier)"), Category("Diagram")]
         public int DefinitionVerticale { get; set; }
 
-        [Description("Correspond à la définition sur l'axe horizontal (en entier)"), Category("Diagram")]
-        public int NombreClasse { get; set; }
-        
-        public int[] NombreValeurIntervalle;
-        public int[] NombreValeurIntervallePoisson;
-        private double tailleIntervalle;
+        [Description("Taille des graduations horizontales (avec virgule flottante)"), Category("Diagram")]
+        public double TailleGraduationHorizontale { get; set; }
+
+        /// <summary>
+        /// Date du dernier evenement permettant de calculer la taille de l'UC
+        /// </summary>
+        private double _date;
+
+        /// <summary>
+        /// Nombre de personne par date <date,nbPersonne>
+        /// </summary>
+        private Dictionary<double,int> personneParDate;
 
         public Uc_PopulationFileAttente()
         {
@@ -48,31 +56,26 @@ namespace SimulationRemonteeSki
             {
                 gr.Clear(Color.White);
 
-                //Dessin des différents bâtons
-                if (NombreValeurIntervalle != null)
-                {
-                    for (int i = 0; i < NombreClasse; i++)
-                    {
+                if (personneParDate == null)
+                    personneParDate = new Dictionary<double, int>();
 
-                        Point pos1 = new Point(20 + ((this.Width - 40) / NombreClasse * i), this.Height - 20 - (int)(((double)(this.Height - 40)) * NombreValeurIntervalle[i] / ((double)Hauteur)));
-                        Point taille = new Point(((this.Width - 40) / NombreClasse), (int)(((double)(this.Height - 40)) * NombreValeurIntervalle[i] / ((double)Hauteur)));
-                        gr.FillRectangle(new SolidBrush(Color.OrangeRed), pos1.X, pos1.Y - 5, taille.X, taille.Y + 5);
-                    }
-                    /*
-                    for (int i = 0; i < NombreClasse; i++)
-                    {
-                        Point pos1 = new Point(20 + ((this.Width - 40) / NombreClasse * i), this.Height - 20 - (int)(((double)(this.Height - 40)) * NombreValeurIntervallePoisson[i] / ((double)Hauteur)));
-                        Point taille = new Point(((this.Width - 40) / NombreClasse), (int)(((double)(this.Height - 40)) * NombreValeurIntervallePoisson[i] / ((double)Hauteur)));
-                        gr.FillRectangle(new SolidBrush(Color.DeepSkyBlue), pos1.X, pos1.Y - 5, taille.X, taille.Y + 5);
-                    }
-                    */
+                this._date = 20; // bouchon
+
+                //Dessin des formes de la population
+                foreach (var item in personneParDate)
+                {
+
+                    //Point pos1 = new Point(20 + ((this.Width - 40) / NombreClasse * i), this.Height - 20 - (int)(((double)(this.Height - 40)) * NombreValeurIntervalle[i] / ((double)Hauteur)));
+                    //Point taille = new Point(((this.Width - 40) / NombreClasse), (int)(((double)(this.Height - 40)) * NombreValeurIntervalle[i] / ((double)Hauteur)));
+                    //gr.FillRectangle(new SolidBrush(Color.OrangeRed), pos1.X, pos1.Y - 5, taille.X, taille.Y + 5);
                 }
 
+                // Dessin des lignes 
                 AdjustableArrowCap bigArrow = new AdjustableArrowCap(5, 5);
                 Pen p = new Pen(Color.Blue, 1);
                 p.CustomEndCap = bigArrow;
                 gr.DrawLine(p, 20, this.Height - 10, 20, 10);
-                gr.DrawLine(p, 10, this.Height - 20, this.Width - 10, this.Height - 20);
+                gr.DrawLine(p, 10, this.Height - 20, (int)(_date * PixelParUT)+10, this.Height - 20);
 
                 //Dessin des aides sur l'axe vertical  
                 Pen p1 = new Pen(Color.Black, 1);
@@ -84,51 +87,28 @@ namespace SimulationRemonteeSki
                 }
 
                 //Dessin des aides sur l'axe horizontal
-                for (int i = 0; i < NombreClasse; i++)
+                int nbIntervalle = (int)(_date / TailleGraduationHorizontale);
+                for (int i = 0;i<nbIntervalle;i++)
                 {
-                    Point position = new Point(20 + ((this.Width - 40) / NombreClasse * (i + 1)), this.Height - 20);
+                    Point position = new Point(20 + (int)(_date * PixelParUT / (double)nbIntervalle) * i, this.Height - 20);
                     gr.DrawLine(p1, position.X, position.Y - 5, position.X, position.Y + 5);
-                    //gr.DrawString(Math.Round((i + 1) * tailleIntervalle, 2).ToString(), new Font("Arial", 8), new SolidBrush(Color.Black), new PointF(position.X, position.Y + 5));
+                    gr.DrawString(Math.Round((TailleGraduationHorizontale * (i + 1)), 2).ToString(), new Font("Arial", 8), new SolidBrush(Color.Black), new PointF(position.X, position.Y + 5));
                 }
+
+                //for (int i = 0; i < NombreClasse; i++)
+                //{
+                //    Point position = new Point(20 + ((this.Width - 40) / NombreClasse * (i + 1)), this.Height - 20);
+                //    gr.DrawLine(p1, position.X, position.Y - 5, position.X, position.Y + 5);
+                //    gr.DrawString(Math.Round((i + 1) * tailleIntervalle, 2).ToString(), new Font("Arial", 8), new SolidBrush(Color.Black), new PointF(position.X, position.Y + 5));
+                //}
             }
         }
-        public void DessinerDiagram(double[] tabD)
+        public void AjoutEvenement(StructureEvenement evennement)
         {
-            double valeurMax = tabD.Max();
-            double valeurMin = 0d;
-            tailleIntervalle = (valeurMax - valeurMin) / (double)NombreClasse;
-            int[] nbValeurIntervalle = new int[NombreClasse];
-                
-            for (int i = 0; i < NombreClasse; i++)
-            {
-                nbValeurIntervalle[i] = 0;
-                foreach (double d in tabD)
-                {
-                    if (d <= tailleIntervalle * (i + 1) && d > tailleIntervalle * i && nbValeurIntervalle[i] < 1)
-                        nbValeurIntervalle[i]++;
-                }
-            }
+            this._date = evennement.dateEvenement + 2;
+            this.Width = (int)Math.Round(_date,MidpointRounding.AwayFromZero) * PixelParUT;
+            personneParDate.Add(_date, personneParDate.Last().Value + evennement.nombrePersonne);
 
-            NombreValeurIntervalle = nbValeurIntervalle;
-            Rafraichir();
-        }
-
-        internal void DessinerDiagram(int[] tabI)
-        {
-            double valeurMax = tabI.Max();
-            double valeurMin = 0d;
-            tailleIntervalle = (valeurMax - valeurMin) / (double)NombreClasse;
-            int[] nbValeurIntervalle = new int[NombreClasse];
-            for (int i = 0; i < NombreClasse; i++)
-            {
-                nbValeurIntervalle[i] = 0;
-                foreach (int d in tabI)
-                {
-                    if (d <= tailleIntervalle * (i + 1) && d > tailleIntervalle * i)
-                        nbValeurIntervalle[i]++;
-                }
-            }
-            NombreValeurIntervalle = nbValeurIntervalle;
             Rafraichir();
         }
     }

@@ -47,9 +47,10 @@
             this.dgvCalcule = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rtbHistorique = new System.Windows.Forms.RichTextBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.uc_PopulationFileAttente1 = new SimulationRemonteeSki.Uc_PopulationFileAttente();
             this.gpbParametresEntree.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -57,6 +58,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSortie)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -289,6 +291,18 @@
             this.panel2.Size = new System.Drawing.Size(666, 614);
             this.panel2.TabIndex = 4;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.uc_PopulationFileAttente1);
+            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.groupBox3.Location = new System.Drawing.Point(0, 0);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(666, 369);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Processus";
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.rtbHistorique);
@@ -312,16 +326,17 @@
             this.rtbHistorique.TabIndex = 0;
             this.rtbHistorique.Text = "";
             // 
-            // groupBox3
+            // uc_PopulationFileAttente1
             // 
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(666, 369);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Processus";
+            this.uc_PopulationFileAttente1.DefinitionVerticale = 6;
+            this.uc_PopulationFileAttente1.Hauteur = 7;
+            this.uc_PopulationFileAttente1.Location = new System.Drawing.Point(15, 24);
+            this.uc_PopulationFileAttente1.Margin = new System.Windows.Forms.Padding(5);
+            this.uc_PopulationFileAttente1.Name = "uc_PopulationFileAttente1";
+            this.uc_PopulationFileAttente1.PixelParUT = 20;
+            this.uc_PopulationFileAttente1.Size = new System.Drawing.Size(467, 140);
+            this.uc_PopulationFileAttente1.TabIndex = 0;
+            this.uc_PopulationFileAttente1.TailleGraduationHorizontale = 1D;
             // 
             // Form1
             // 
@@ -341,6 +356,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSortie)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -370,5 +386,6 @@
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.RichTextBox rtbHistorique;
         private System.Windows.Forms.GroupBox groupBox3;
+        private Uc_PopulationFileAttente uc_PopulationFileAttente1;
     }
 }
