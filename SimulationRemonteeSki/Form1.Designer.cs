@@ -334,9 +334,9 @@
             this.uc_PopulationFileAttente1.Margin = new System.Windows.Forms.Padding(5);
             this.uc_PopulationFileAttente1.Name = "uc_PopulationFileAttente1";
             this.uc_PopulationFileAttente1.PixelParUT = 20;
-            this.uc_PopulationFileAttente1.Size = new System.Drawing.Size(467, 140);
+            this.uc_PopulationFileAttente1.Size = new System.Drawing.Size(475, 140);
             this.uc_PopulationFileAttente1.TabIndex = 0;
-            this.uc_PopulationFileAttente1.TailleGraduationHorizontale = 1D;
+            this.uc_PopulationFileAttente1.TailleGraduationHorizontale = 2D;
             // 
             // Form1
             // 

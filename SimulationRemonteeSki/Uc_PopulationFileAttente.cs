@@ -81,9 +81,9 @@ namespace SimulationRemonteeSki
                 Pen p1 = new Pen(Color.Black, 1);
                 for (int i = 0; i < DefinitionVerticale; i++)
                 {
-                    Point position = new Point(20, 20 + (this.Height - 30) - ((this.Height - 30) / DefinitionVerticale * (i + 1)));
+                    Point position = new Point(20, 20 + (this.Height - 20) - ((this.Height - 20) / DefinitionVerticale * (i + 1)));
                     gr.DrawLine(p1, position.X - 5, position.Y, position.X + 5, position.Y);
-                    gr.DrawString((Hauteur / DefinitionVerticale * (i + 1)).ToString(), new Font("Arial", 8), new SolidBrush(Color.Black), new PointF(position.X - 20, position.Y));
+                    gr.DrawString((Hauteur / DefinitionVerticale * i ).ToString(), new Font("Arial", 8), new SolidBrush(Color.Black), new PointF(position.X - 20, position.Y));
                 }
 
                 //Dessin des aides sur l'axe horizontal
@@ -92,7 +92,7 @@ namespace SimulationRemonteeSki
                 {
                     Point position = new Point(20 + (int)(_date * PixelParUT / (double)nbIntervalle) * i, this.Height - 20);
                     gr.DrawLine(p1, position.X, position.Y - 5, position.X, position.Y + 5);
-                    gr.DrawString(Math.Round((TailleGraduationHorizontale * (i + 1)), 2).ToString(), new Font("Arial", 8), new SolidBrush(Color.Black), new PointF(position.X, position.Y + 5));
+                    gr.DrawString(Math.Round((TailleGraduationHorizontale * i), 2).ToString(), new Font("Arial", 8), new SolidBrush(Color.Black), new PointF(position.X, position.Y + 5));
                 }
 
                 //for (int i = 0; i < NombreClasse; i++)
