@@ -38,6 +38,8 @@ namespace SimulationRemonteeSki
             dgvSortie.Rows[index].Cells["dgvSimule"].Value = 389;
             dgvSortie.Rows[index].Cells["dgvCalcule"].Value = 400;
 
+            this.uc_PopulationFileAttente1.AjoutEvenement(new StructureEvenement(2, 30, 2));
+
             rtbHistorique.Text += "09:01 - Nouvelle arrivée\n";
             rtbHistorique.Text += "09:01 - Nouvelle arrivée\n";
             rtbHistorique.Text += "09:01 - Nouvelle arrivée\n";

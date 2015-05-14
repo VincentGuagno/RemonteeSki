@@ -56,43 +56,37 @@ namespace SimulationRemonteeSki
             {
                 gr.Clear(Color.White);
 
-                if (personneParDate == null)
-                    personneParDate = new Dictionary<double, int>();
-
-                this._date = 20; // bouchon
-                personneParDate.Add(5, 2);
-                personneParDate.Add(3, 1);
-                personneParDate.Add(6, 1);
-                personneParDate.Add(7, 3);
-                personneParDate.Add(8.5, 5);
-
-                personneParDate = personneParDate.OrderBy(t => t.Key).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
-                KeyValuePair<double, int> evenementPrecedent = personneParDate.First();
-
-                Pen redPen = new Pen(Color.Red, 1);
-                //Dessin des formes de la population
-                foreach (var item in personneParDate)
+                if (personneParDate != null)
                 {
-                    Point position = new Point(20 + (int)(item.Key * PixelParUT), this.Height - 20);
 
-                    int hauteurPrecedent = (int)(((double)evenementPrecedent.Value / (double)Hauteur) * (this.Height - 30));
+                    personneParDate = personneParDate.OrderBy(t => t.Key).ToDictionary(kvp => kvp.Key, kvp => kvp.Value);
+                    KeyValuePair<double, int> evenementPrecedent = personneParDate.First();
 
-                    int hauteurActuel = (int)(((double)item.Value / (double)Hauteur) * (this.Height - 30));
-
-                    if (item.Key == evenementPrecedent.Key)
+                    Pen redPen = new Pen(Color.Red, 1);
+                    //Dessin des formes de la population
+                    foreach (var item in personneParDate)
                     {
-                        gr.DrawLine(redPen, position.X, position.Y, position.X, position.Y - hauteurActuel);
-                    }
-                    else
-                    {
-                        gr.DrawLine(redPen, position.X, position.Y - hauteurPrecedent, position.X, position.Y - hauteurActuel);
-                        gr.DrawLine(redPen, 20 + (int)(item.Key * PixelParUT), position.Y - hauteurPrecedent, 20 + (int)(evenementPrecedent.Key * PixelParUT), position.Y - hauteurPrecedent);
-                    }
+                        Point position = new Point(20 + (int)(item.Key * PixelParUT), this.Height - 20);
 
-                    evenementPrecedent = item;
-                    //Point pos1 = new Point(20 + ((this.Width - 40) / NombreClasse * i), this.Height - 20 - (int)(((double)(this.Height - 40)) * NombreValeurIntervalle[i] / ((double)Hauteur)));
-                    //Point taille = new Point(((this.Width - 40) / NombreClasse), (int)(((double)(this.Height - 40)) * NombreValeurIntervalle[i] / ((double)Hauteur)));
-                    //gr.FillRectangle(new SolidBrush(Color.OrangeRed), pos1.X, pos1.Y - 5, taille.X, taille.Y + 5);
+                        int hauteurPrecedent = (int)(((double)evenementPrecedent.Value / (double)Hauteur) * (this.Height - 30));
+
+                        int hauteurActuel = (int)(((double)item.Value / (double)Hauteur) * (this.Height - 30));
+
+                        if (item.Key == evenementPrecedent.Key)
+                        {
+                            gr.DrawLine(redPen, position.X, position.Y, position.X, position.Y - hauteurActuel);
+                        }
+                        else
+                        {
+                            gr.DrawLine(redPen, position.X, position.Y - hauteurPrecedent, position.X, position.Y - hauteurActuel);
+                            gr.DrawLine(redPen, 20 + (int)(item.Key * PixelParUT), position.Y - hauteurPrecedent, 20 + (int)(evenementPrecedent.Key * PixelParUT), position.Y - hauteurPrecedent);
+                        }
+
+                        evenementPrecedent = item;
+                        //Point pos1 = new Point(20 + ((this.Width - 40) / NombreClasse * i), this.Height - 20 - (int)(((double)(this.Height - 40)) * NombreValeurIntervalle[i] / ((double)Hauteur)));
+                        //Point taille = new Point(((this.Width - 40) / NombreClasse), (int)(((double)(this.Height - 40)) * NombreValeurIntervalle[i] / ((double)Hauteur)));
+                        //gr.FillRectangle(new SolidBrush(Color.OrangeRed), pos1.X, pos1.Y - 5, taille.X, taille.Y + 5);
+                    }
                 }
 
                 // Dessin des lignes 
@@ -123,9 +117,20 @@ namespace SimulationRemonteeSki
         }
         public void AjoutEvenement(StructureEvenement evennement)
         {
-            this._date = evennement.dateEvenement + 2;
-            this.Width = (int)Math.Round(_date,MidpointRounding.AwayFromZero) * PixelParUT;
-            personneParDate.Add(_date, personneParDate.Last().Value + evennement.nombrePersonne);
+            if (personneParDate == null)
+                personneParDate = new Dictionary<double, int>();
+            this._date = evennement.dateEvenement;
+            personneParDate.Add(5, 2);
+            personneParDate.Add(3, 1);
+            personneParDate.Add(6, 1);
+            personneParDate.Add(7, 3);
+            personneParDate.Add(8.5, 5);
+            this.Width = 30+(int)Math.Round(_date,MidpointRounding.AwayFromZero) * PixelParUT;
+
+            if (personneParDate.Count>0)
+                personneParDate.Add(_date, personneParDate.Last().Value + (evennement.secteur == 0 ? evennement.nombrePersonne : evennement.nombrePersonne*-1));
+            else
+                personneParDate.Add(_date, evennement.nombrePersonne);
 
             Rafraichir();
         }

@@ -50,6 +50,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rtbHistorique = new System.Windows.Forms.RichTextBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.uc_PopulationFileAttente1 = new SimulationRemonteeSki.Uc_PopulationFileAttente();
             this.gpbParametresEntree.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -60,6 +62,8 @@
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpbParametresEntree
@@ -293,7 +297,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.uc_PopulationFileAttente1);
+            this.groupBox3.Controls.Add(this.panel3);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
@@ -326,15 +330,34 @@
             this.rtbHistorique.TabIndex = 0;
             this.rtbHistorique.Text = "";
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(3, 25);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(660, 177);
+            this.panel3.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.AutoScroll = true;
+            this.panel4.Controls.Add(this.uc_PopulationFileAttente1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(473, 177);
+            this.panel4.TabIndex = 2;
+            // 
             // uc_PopulationFileAttente1
             // 
             this.uc_PopulationFileAttente1.DefinitionVerticale = 6;
             this.uc_PopulationFileAttente1.Hauteur = 7;
-            this.uc_PopulationFileAttente1.Location = new System.Drawing.Point(15, 24);
+            this.uc_PopulationFileAttente1.Location = new System.Drawing.Point(5, 6);
             this.uc_PopulationFileAttente1.Margin = new System.Windows.Forms.Padding(5);
             this.uc_PopulationFileAttente1.Name = "uc_PopulationFileAttente1";
             this.uc_PopulationFileAttente1.PixelParUT = 20;
-            this.uc_PopulationFileAttente1.Size = new System.Drawing.Size(475, 140);
+            this.uc_PopulationFileAttente1.Size = new System.Drawing.Size(463, 148);
             this.uc_PopulationFileAttente1.TabIndex = 0;
             this.uc_PopulationFileAttente1.TailleGraduationHorizontale = 2D;
             // 
@@ -358,6 +381,8 @@
             this.panel2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -387,5 +412,7 @@
         private System.Windows.Forms.RichTextBox rtbHistorique;
         private System.Windows.Forms.GroupBox groupBox3;
         private Uc_PopulationFileAttente uc_PopulationFileAttente1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }
