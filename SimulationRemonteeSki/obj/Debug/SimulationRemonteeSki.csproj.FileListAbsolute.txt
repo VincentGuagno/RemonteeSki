@@ -1,0 +1,9 @@
+E:\Documents\Visual Studio\Simulation\Simulation\SimulationRemonteeSki\bin\Debug\SimulationRemonteeSki.exe.config
+E:\Documents\Visual Studio\Simulation\Simulation\SimulationRemonteeSki\obj\Debug\SimulationRemonteeSki.csprojResolveAssemblyReference.cache
+E:\Documents\Visual Studio\Simulation\Simulation\SimulationRemonteeSki\obj\Debug\SimulationRemonteeSki.Properties.Resources.resources
+E:\Documents\Visual Studio\Simulation\Simulation\SimulationRemonteeSki\obj\Debug\SimulationRemonteeSki.csproj.GenerateResource.Cache
+E:\Documents\Visual Studio\Simulation\Simulation\SimulationRemonteeSki\bin\Debug\SimulationRemonteeSki.exe
+E:\Documents\Visual Studio\Simulation\Simulation\SimulationRemonteeSki\bin\Debug\SimulationRemonteeSki.pdb
+E:\Documents\Visual Studio\Simulation\Simulation\SimulationRemonteeSki\obj\Debug\SimulationRemonteeSki.exe
+E:\Documents\Visual Studio\Simulation\Simulation\SimulationRemonteeSki\obj\Debug\SimulationRemonteeSki.pdb
+E:\Documents\Visual Studio\Simulation\Simulation\SimulationRemonteeSki\obj\Debug\SimulationRemonteeSki.Form1.resources

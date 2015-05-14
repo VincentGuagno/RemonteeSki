@@ -1,0 +1,6 @@
+E:\Documents\Visual Studio\Simulation\Simulation\Simulation\bin\Debug\Simulation.exe.config
+E:\Documents\Visual Studio\Simulation\Simulation\Simulation\obj\Debug\Simulation.csprojResolveAssemblyReference.cache
+E:\Documents\Visual Studio\Simulation\Simulation\Simulation\bin\Debug\Simulation.exe
+E:\Documents\Visual Studio\Simulation\Simulation\Simulation\bin\Debug\Simulation.pdb
+E:\Documents\Visual Studio\Simulation\Simulation\Simulation\obj\Debug\Simulation.exe
+E:\Documents\Visual Studio\Simulation\Simulation\Simulation\obj\Debug\Simulation.pdb
