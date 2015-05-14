@@ -45,7 +45,7 @@ namespace SimulationRemonteeSki
                     evenementSimule = ProcessusSortie(dateSortieMin.Key);
                 else
                 {
-                    dateSortie[dateSortieMin.Key] = temps + tempsMoyenSortie;
+                    dateSortie[dateSortieMin.Key] = dateSortie[dateSortieMin.Key] + tempsMoyenSortie;
                     evenementSimule = ProcessusEntree();
                 }
             }
