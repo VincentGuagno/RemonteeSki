@@ -7,3 +7,6 @@ E:\Documents\Visual Studio\Simulation\Simulation\SimulationRemonteeSki\bin\Debug
 E:\Documents\Visual Studio\Simulation\Simulation\SimulationRemonteeSki\obj\Debug\SimulationRemonteeSki.exe
 E:\Documents\Visual Studio\Simulation\Simulation\SimulationRemonteeSki\obj\Debug\SimulationRemonteeSki.pdb
 E:\Documents\Visual Studio\Simulation\Simulation\SimulationRemonteeSki\obj\Debug\SimulationRemonteeSki.Form1.resources
+H:\Documents\GitHub\RemoteeSki\SimulationRemonteeSki\bin\Debug\SimulationRemonteeSki.exe.config
+H:\Documents\GitHub\RemoteeSki\SimulationRemonteeSki\obj\Debug\SimulationRemonteeSki.exe
+H:\Documents\GitHub\RemoteeSki\SimulationRemonteeSki\obj\Debug\SimulationRemonteeSki.pdb
