@@ -92,6 +92,21 @@ namespace SimulationRemonteeSki
             return (-x * Math.Log(z));
         }
 
+
+        public static void EffacerSimulation()
+        {
+            temps = 0;
+            dateEntree = 0;
+            dateSortie = new Dictionary<int, double>() { { 1, 0.5 }, { 2, 1 }, { 3, 1.5 }, { 4, 2 }, { 5, 2.5 } };
+            nbFileAttente = 0;
+            nbSortieSysteme = 0.0; 
+            aireNbPersonneSysteme = 0.0; 
+            tempsDernierEvenement = temps;
+            tempsDernierTraitement = 0;
+            debit = 0;
+            nombrePersonnesMoyen = 0; 
+            tempsMoyenSysteme = 0;
+        }
         /*regarde si date d'entrée > à une des dates de sorties pour les stations
         static void tuTiresOuTuPointes (int dateEntree) 
         {

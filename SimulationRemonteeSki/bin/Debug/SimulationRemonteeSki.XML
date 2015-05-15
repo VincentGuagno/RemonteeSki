@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SimulationRemonteeSki</name>
+    </assembly>
+    <members>
+        <member name="F:SimulationRemonteeSki.MainForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:SimulationRemonteeSki.MainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:SimulationRemonteeSki.MainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:SimulationRemonteeSki.Program.Main">
+            <summary>
+            Point d'entrée principal de l'application.
+            </summary>
+        </member>
+        <member name="F:SimulationRemonteeSki.Uc_Evenement._date">
+            <summary>
+            Date du dernier evenement permettant de calculer la taille de l'UC
+            </summary>
+        </member>
+        <!-- Commentaire XML incorrect ignoré pour le membre "F:SimulationRemonteeSki.Uc_Evenement.stationParDate" -->
+        <member name="F:SimulationRemonteeSki.Uc_Evenement.components">
+            <summary> 
+            Variable nécessaire au concepteur.
+            </summary>
+        </member>
+        <member name="M:SimulationRemonteeSki.Uc_Evenement.Dispose(System.Boolean)">
+            <summary> 
+            Nettoyage des ressources utilisées.
+            </summary>
+            <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        </member>
+        <member name="M:SimulationRemonteeSki.Uc_Evenement.InitializeComponent">
+            <summary> 
+            Méthode requise pour la prise en charge du concepteur - ne modifiez pas 
+            le contenu de cette méthode avec l'éditeur de code.
+            </summary>
+        </member>
+        <member name="P:SimulationRemonteeSki.Uc_Evenement.PixelParUT">
+            <summary>
+            Nombre de pixel par unité de temps
+            </summary>
+        </member>
+        <member name="P:SimulationRemonteeSki.Uc_Evenement.Hauteur">
+            <summary>
+            Valeur maximale sur l'axe vertical
+            </summary>
+        </member>
+        <member name="F:SimulationRemonteeSki.Uc_PopulationFileAttente._date">
+            <summary>
+            Date du dernier evenement permettant de calculer la taille de l'UC
+            </summary>
+        </member>
+        <member name="F:SimulationRemonteeSki.Uc_PopulationFileAttente.personneParDate">
+            <summary>
+            Nombre de personne par date (date nbPersonne)
+            </summary>
+        </member>
+        <member name="F:SimulationRemonteeSki.Uc_PopulationFileAttente.components">
+            <summary> 
+            Variable nécessaire au concepteur.
+            </summary>
+        </member>
+        <member name="M:SimulationRemonteeSki.Uc_PopulationFileAttente.Dispose(System.Boolean)">
+            <summary> 
+            Nettoyage des ressources utilisées.
+            </summary>
+            <param name="disposing">true si les ressources managées doivent être supprimées ; sinon, false.</param>
+        </member>
+        <member name="M:SimulationRemonteeSki.Uc_PopulationFileAttente.InitializeComponent">
+            <summary> 
+            Méthode requise pour la prise en charge du concepteur - ne modifiez pas 
+            le contenu de cette méthode avec l'éditeur de code.
+            </summary>
+        </member>
+        <member name="P:SimulationRemonteeSki.Uc_PopulationFileAttente.PixelParUT">
+            <summary>
+            Nombre de pixel par unité de temps
+            </summary>
+        </member>
+        <member name="P:SimulationRemonteeSki.Uc_PopulationFileAttente.Hauteur">
+            <summary>
+            Valeur maximale sur l'axe vertical
+            </summary>
+        </member>
+        <member name="T:SimulationRemonteeSki.Properties.Resources">
+            <summary>
+              Une classe de ressource fortement typée destinée, entre autres, à la consultation des chaînes localisées.
+            </summary>
+        </member>
+        <member name="P:SimulationRemonteeSki.Properties.Resources.ResourceManager">
+            <summary>
+              Retourne l'instance ResourceManager mise en cache utilisée par cette classe.
+            </summary>
+        </member>
+        <member name="P:SimulationRemonteeSki.Properties.Resources.Culture">
+            <summary>
+              Remplace la propriété CurrentUICulture du thread actuel pour toutes
+              les recherches de ressources à l'aide de cette classe de ressource fortement typée.
+            </summary>
+        </member>
+    </members>
+</doc>

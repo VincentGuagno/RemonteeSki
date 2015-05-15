@@ -36,7 +36,7 @@ namespace SimulationRemonteeSki
         private double _date;
 
         /// <summary>
-        /// Nombre de personne par date <date,nbPersonne>
+        /// Nombre de personne par date (date nbPersonne)
         /// </summary>
         private Dictionary<double,int> personneParDate;
 
@@ -125,10 +125,19 @@ namespace SimulationRemonteeSki
                 this.Width = 30 + (int)Math.Round(_date, MidpointRounding.AwayFromZero) * PixelParUT;
 
                 if (personneParDate.Count > 0)
-                    personneParDate.Add(_date, personneParDate.Last().Value + (evennement.secteur == 0 ? evennement.nombrePersonne : evennement.nombrePersonne * -1));
+                    personneParDate.Add(_date, personneParDate.Last().Value + (evennement.secteur != 0 ? evennement.nombrePersonne : evennement.nombrePersonne * -1));
                 else
                     personneParDate.Add(_date, evennement.nombrePersonne);
                 Rafraichir();
+            }
+        }
+
+        internal void Effacer()
+        {
+            if (personneParDate != null)
+            {
+                personneParDate.Clear();
+                _date = 0;
             }
         }
     }

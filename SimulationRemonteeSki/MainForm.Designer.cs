@@ -1,6 +1,6 @@
 ﻿namespace SimulationRemonteeSki
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gpbParametresEntree = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,9 +50,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnScroll = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rtbHistorique = new System.Windows.Forms.RichTextBox();
+            this.timerIntervalle = new System.Windows.Forms.Timer(this.components);
             this.uc_PopulationFileAttente1 = new SimulationRemonteeSki.Uc_PopulationFileAttente();
             this.gpbParametresEntree.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -62,7 +64,7 @@
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.pnScroll.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,6 +98,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Lancer la simulation";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
@@ -309,22 +312,22 @@
             // 
             // panel3
             // 
-            this.panel3.Controls.Add(this.panel4);
+            this.panel3.Controls.Add(this.pnScroll);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(3, 25);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(660, 177);
             this.panel3.TabIndex = 1;
             // 
-            // panel4
+            // pnScroll
             // 
-            this.panel4.AutoScroll = true;
-            this.panel4.Controls.Add(this.uc_PopulationFileAttente1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(473, 177);
-            this.panel4.TabIndex = 2;
+            this.pnScroll.AutoScroll = true;
+            this.pnScroll.Controls.Add(this.uc_PopulationFileAttente1);
+            this.pnScroll.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnScroll.Location = new System.Drawing.Point(0, 0);
+            this.pnScroll.Name = "pnScroll";
+            this.pnScroll.Size = new System.Drawing.Size(473, 177);
+            this.pnScroll.TabIndex = 2;
             // 
             // groupBox2
             // 
@@ -349,6 +352,11 @@
             this.rtbHistorique.TabIndex = 0;
             this.rtbHistorique.Text = "";
             // 
+            // timerIntervalle
+            // 
+            this.timerIntervalle.Interval = 500;
+            this.timerIntervalle.Tick += new System.EventHandler(this.timerIntervalle_Tick);
+            // 
             // uc_PopulationFileAttente1
             // 
             this.uc_PopulationFileAttente1.DefinitionVerticale = 6;
@@ -361,7 +369,7 @@
             this.uc_PopulationFileAttente1.TabIndex = 0;
             this.uc_PopulationFileAttente1.TailleGraduationHorizontale = 2D;
             // 
-            // Form1
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -369,7 +377,7 @@
             this.ClientSize = new System.Drawing.Size(1265, 614);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "Remontée de ski";
             this.gpbParametresEntree.ResumeLayout(false);
             this.gpbParametresEntree.PerformLayout();
@@ -381,7 +389,7 @@
             this.panel2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            this.pnScroll.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -413,6 +421,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private Uc_PopulationFileAttente uc_PopulationFileAttente1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnScroll;
+        private System.Windows.Forms.Timer timerIntervalle;
     }
 }
