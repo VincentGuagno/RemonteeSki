@@ -46,7 +46,7 @@ namespace SimulationRemonteeSki
             {
                 case EtatSimulation.Arret:
                     uc_PopulationFileAttente1.Effacer();
-                    SimulationSystemeMultiples.EffacerSimulation();
+                    //SimulationSystemeMultiples.EffacerSimulation();
                     rtbHistorique.Clear();
                     timerIntervalle.Enabled = true;
                     button1.Text = "Stopper la simulation";
@@ -72,12 +72,14 @@ namespace SimulationRemonteeSki
         private void timerIntervalle_Tick(object sender, EventArgs e)
         {
             StructureEvenement evenement = SimulationSystemeMultiples.Simulation();
-            uc_PopulationFileAttente1.AjoutEvenement(SimulationSystemeMultiples.Simulation());
+            uc_PopulationFileAttente1.AjoutEvenement(evenement);
+            uc_Evenement1.AjoutEvenement(evenement);
             if (evenement.secteur>0)
                 rtbHistorique.Text += this.dtpDebut.Value.AddMinutes(evenement.dateEvenement).ToString("hh:mm:ss") +" - "+ evenement.nombrePersonne +" nouvelle(s) sortie(s)\n";
             else
                 rtbHistorique.Text += this.dtpDebut.Value.AddMinutes(evenement.dateEvenement).ToString("hh:mm:ss") + " - " + evenement.nombrePersonne + " nouvelle(s) entrée(s)\n";
             pnScroll.HorizontalScroll.Value = pnScroll.HorizontalScroll.Maximum;
+            pnScroll2.HorizontalScroll.Value = pnScroll2.HorizontalScroll.Maximum;
 
             if (this.dtpDebut.Value.AddMinutes(evenement.dateEvenement) >= dtpFin.Value)
                 FinAnimation();

@@ -18,7 +18,7 @@ namespace SimulationRemonteeSki
         /// </summary>
         [Description("Nombre de pixel par unitées de temps"), Category("Diagram")]
         public int PixelParUT { get; set; }
-
+        
         /// <summary>
         /// Valeur maximale sur l'axe vertical
         /// </summary>
@@ -123,24 +123,23 @@ namespace SimulationRemonteeSki
         }
         public void AjoutEvenement(StructureEvenement evennement)
         {
-            if (stationParDate == null)
-                stationParDate = new Dictionary<double, int>();
-            this._date = evennement.dateEvenement;
-            stationParDate.Add(5, 2);
-            stationParDate.Add(3, 1);
-            stationParDate.Add(6, 1);
-            stationParDate.Add(7, 3);
-            stationParDate.Add(8.5, 5);
-            this.Width = 30 + (int)Math.Round(_date, MidpointRounding.AwayFromZero) * PixelParUT;
-
-            if (stationParDate.Count > 0)
-                stationParDate.Add(_date, stationParDate.Last().Value + (evennement.secteur == 0 ? evennement.nombrePersonne : evennement.nombrePersonne * -1));
-            else
-                stationParDate.Add(_date, evennement.nombrePersonne);
-
-            Rafraichir();
+            if (this._date < evennement.dateEvenement)
+            {
+                if (stationParDate == null)
+                    stationParDate = new Dictionary<double, int>();
+                this._date = evennement.dateEvenement;
+                this.Width = 30 + (int)Math.Round(_date, MidpointRounding.AwayFromZero) * PixelParUT;
+                stationParDate.Add(evennement.dateEvenement, evennement.secteur);
+                Rafraichir();
+            }
         }
-
-
+        internal void Effacer()
+        {
+            if (stationParDate != null)
+            {
+                stationParDate.Clear();
+                _date = 0;
+            }
+        }
     }
 }

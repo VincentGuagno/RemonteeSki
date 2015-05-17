@@ -54,6 +54,9 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rtbHistorique = new System.Windows.Forms.RichTextBox();
             this.timerIntervalle = new System.Windows.Forms.Timer(this.components);
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnScroll2 = new System.Windows.Forms.Panel();
+            this.uc_Evenement1 = new SimulationRemonteeSki.Uc_Evenement();
             this.uc_PopulationFileAttente1 = new SimulationRemonteeSki.Uc_PopulationFileAttente();
             this.gpbParametresEntree.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -66,6 +69,8 @@
             this.panel3.SuspendLayout();
             this.pnScroll.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.pnScroll2.SuspendLayout();
             this.SuspendLayout();
             // 
             // gpbParametresEntree
@@ -300,6 +305,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.panel4);
             this.groupBox3.Controls.Add(this.panel3);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
@@ -357,6 +363,37 @@
             this.timerIntervalle.Interval = 500;
             this.timerIntervalle.Tick += new System.EventHandler(this.timerIntervalle_Tick);
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.pnScroll2);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 202);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(660, 164);
+            this.panel4.TabIndex = 2;
+            // 
+            // pnScroll2
+            // 
+            this.pnScroll2.AutoScroll = true;
+            this.pnScroll2.Controls.Add(this.uc_Evenement1);
+            this.pnScroll2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnScroll2.Location = new System.Drawing.Point(0, 0);
+            this.pnScroll2.Name = "pnScroll2";
+            this.pnScroll2.Size = new System.Drawing.Size(473, 164);
+            this.pnScroll2.TabIndex = 0;
+            // 
+            // uc_Evenement1
+            // 
+            this.uc_Evenement1.DefinitionVerticale = 6;
+            this.uc_Evenement1.Hauteur = 30;
+            this.uc_Evenement1.Location = new System.Drawing.Point(5, 4);
+            this.uc_Evenement1.Margin = new System.Windows.Forms.Padding(4);
+            this.uc_Evenement1.Name = "uc_Evenement1";
+            this.uc_Evenement1.PixelParUT = 20;
+            this.uc_Evenement1.Size = new System.Drawing.Size(150, 150);
+            this.uc_Evenement1.TabIndex = 0;
+            this.uc_Evenement1.TailleGraduationHorizontale = 2D;
+            // 
             // uc_PopulationFileAttente1
             // 
             this.uc_PopulationFileAttente1.DefinitionVerticale = 6;
@@ -391,6 +428,8 @@
             this.panel3.ResumeLayout(false);
             this.pnScroll.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.pnScroll2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -423,5 +462,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel pnScroll;
         private System.Windows.Forms.Timer timerIntervalle;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnScroll2;
+        private Uc_Evenement uc_Evenement1;
     }
 }

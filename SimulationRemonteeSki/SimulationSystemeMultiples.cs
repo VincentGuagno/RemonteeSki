@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +15,7 @@ namespace SimulationRemonteeSki
         static double tempsMoyenSortie = 4.0; // Temps de service moyen
         static double temps = 0.0; // Temps actuel
         static double dateEntree; // Tableau des temps avant le prochain évènement d'entrée 
-        static Dictionary<int, double> dateSortie = new Dictionary<int, double>() { { 1, 0.5 }, { 2, 1 }, { 3, 1.5 }, { 4, 2 }, { 5, 2.5 } }; // Temps avant le prochain évènement de sortie
+        static Dictionary<int, double> dateSortie = new Dictionary<int, double>() { { 1, 0.5 }, { 2, 1 }/*, { 3, 1.5 }, { 4, 2 }, { 5, 2.5 } */}; // Temps avant le prochain évènement de sortie
         static long nbFileAttente = 0; // Nombre de personnes dans la file d'attente
         static double nbSortieSysteme = 0.0; // Nombre de personnes sortie du système
         static double aireNbPersonneSysteme = 0.0; // Nombre de personne dans le système
@@ -41,11 +41,11 @@ namespace SimulationRemonteeSki
                         dateSortieMin = item;
                     }
                 }
-                if (dateEntree > dateSortieMin.Value && nbFileAttente > 0)
+                 if (dateEntree > dateSortieMin.Value && nbFileAttente > 0)
                     evenementSimule = ProcessusSortie(dateSortieMin.Key);
                 else
                 {
-                    dateSortie[dateSortieMin.Key] = dateSortie[dateSortieMin.Key] + tempsMoyenSortie;
+                    dateSortie[dateSortieMin.Key] = temps + tempsMoyenSortie; //TODO COMPRENDRE POURQUOI UN MEC PART TOUTES LES 4 ET S'EN FOUT DE LA SORTIE
                     evenementSimule = ProcessusEntree();
                 }
             }
@@ -86,27 +86,11 @@ namespace SimulationRemonteeSki
             do
             {
                 z = rand.NextDouble();
-
             }
             while ((z == 0) || (z == 1));
             return (-x * Math.Log(z));
         }
 
-
-        public static void EffacerSimulation()
-        {
-            temps = 0;
-            dateEntree = 0;
-            dateSortie = new Dictionary<int, double>() { { 1, 0.5 }, { 2, 1 }, { 3, 1.5 }, { 4, 2 }, { 5, 2.5 } };
-            nbFileAttente = 0;
-            nbSortieSysteme = 0.0; 
-            aireNbPersonneSysteme = 0.0; 
-            tempsDernierEvenement = temps;
-            tempsDernierTraitement = 0;
-            debit = 0;
-            nombrePersonnesMoyen = 0; 
-            tempsMoyenSysteme = 0;
-        }
         /*regarde si date d'entrée > à une des dates de sorties pour les stations
         static void tuTiresOuTuPointes (int dateEntree) 
         {
