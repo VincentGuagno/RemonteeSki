@@ -48,13 +48,11 @@
     <Compile Include="SimulationSysteme.cs" />
     <Compile Include="SimulationSystemeMultiples.cs" />
     <Compile Include="StructureEvenement.cs" />
-    <Compile Include="..\..\..\..\SimulationRemonteeSki\MainForm.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
-      <Link>MainForm.cs</Link>
     </Compile>
-    <Compile Include="..\..\..\..\SimulationRemonteeSki\MainForm.Designer.cs">
+    <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
-      <Link>MainForm.Designer.cs</Link>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -70,9 +68,8 @@
     <Compile Include="Uc_PopulationFileAttente.Designer.cs">
       <DependentUpon>Uc_PopulationFileAttente.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="..\..\..\..\SimulationRemonteeSki\MainForm.resx">
+    <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-      <Link>MainForm.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
