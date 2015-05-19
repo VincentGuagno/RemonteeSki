@@ -98,17 +98,20 @@ namespace SimulationRemonteeSki
 
         private void CalculTableau()
         {
-            dgvSortie.Rows[indexTableau["MoyenneFile"]].Cells["dgvCalcule"].Value = 18;
+            decimal lambda = numCadenceEntree.Value;
+            decimal mu = numCadenceSortie.Value;
+            decimal temp = mu - lambda;
+            dgvSortie.Rows[indexTableau["MoyenneFile"]].Cells["dgvCalcule"].Value = ((lambda * lambda) / (2 * mu * temp)) / numStations.Value;
             dgvSortie.Rows[indexTableau["MoyenneFile"]].Cells["dgvSimule"].Value = SimulationSystemeMultiples.nombrePersonnesMoyen;
 
-            dgvSortie.Rows[indexTableau["AttenteMoyen"]].Cells["dgvCalcule"].Value = 2.25;
+            dgvSortie.Rows[indexTableau["AttenteMoyen"]].Cells["dgvCalcule"].Value = (lambda / (2 * mu * temp))*60;
             dgvSortie.Rows[indexTableau["AttenteMoyen"]].Cells["dgvSimule"].Value = SimulationSystemeMultiples.tempsMoyenSysteme;
 
-            dgvSortie.Rows[indexTableau["ArriveeMoyenne"]].Cells["dgvCalcule"].Value = 300;
-            dgvSortie.Rows[indexTableau["ArriveeMoyenne"]].Cells["dgvSimule"].Value = SimulationSystemeMultiples.nbEntreeMoyenne;
+            dgvSortie.Rows[indexTableau["ArriveeMoyenne"]].Cells["dgvCalcule"].Value = numCadenceEntree.Value;
+            dgvSortie.Rows[indexTableau["ArriveeMoyenne"]].Cells["dgvSimule"].Value = SimulationSystemeMultiples.nbEntreeMoyenne / 60;
 
-            dgvSortie.Rows[indexTableau["SortieMoyenne"]].Cells["dgvCalcule"].Value = 400;
-            dgvSortie.Rows[indexTableau["SortieMoyenne"]].Cells["dgvSimule"].Value = SimulationSystemeMultiples.nbSortieMoyenne;
+            dgvSortie.Rows[indexTableau["SortieMoyenne"]].Cells["dgvCalcule"].Value = numCadenceSortie.Value;
+            dgvSortie.Rows[indexTableau["SortieMoyenne"]].Cells["dgvSimule"].Value = SimulationSystemeMultiples.nbSortieMoyenne / 60;
         }
 
         private void FinAnimation()

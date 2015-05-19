@@ -65,11 +65,11 @@ namespace SimulationRemonteeSki
                 }
             }
 
-            debit = nbSortieSysteme / (temps/60); // Debit de sortie
-            nombrePersonnesMoyen = aireNbPersonneSysteme / (temps/60); // Moyenne du nombre de personne dans le système
+            debit = nbSortieSysteme / temps; // Debit de sortie
+            nombrePersonnesMoyen = aireNbPersonneSysteme / (temps); // Moyenne du nombre de personne dans le système
             tempsMoyenSysteme = nombrePersonnesMoyen / debit; // Temps moyen passé dans le système
-            nbSortieMoyenne = nbSortieSysteme / temps/60 ;
-            nbEntreeMoyenne = nbEntreeSysteme / temps/60 ;
+            nbSortieMoyenne = nbSortieSysteme / temps ;
+            nbEntreeMoyenne = nbEntreeSysteme / temps ;
             return evenementSimule;
         }
 
