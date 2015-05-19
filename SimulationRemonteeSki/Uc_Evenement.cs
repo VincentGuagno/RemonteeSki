@@ -92,7 +92,7 @@ namespace SimulationRemonteeSki
                                 penToUse = OrangePen;
                                 break;
                             default:
-                                penToUse = redPen;
+                                penToUse = mauvePen;
                                 break;
                         }
                         Point position = new Point(20 + (int)(item.Key * PixelParUT), this.Height - 20);
