@@ -425,7 +425,7 @@
             this.uc_Evenement1.Location = new System.Drawing.Point(5, 4);
             this.uc_Evenement1.Margin = new System.Windows.Forms.Padding(4);
             this.uc_Evenement1.Name = "uc_Evenement1";
-            this.uc_Evenement1.PixelParUT = 200;
+            this.uc_Evenement1.PixelParUT = 3600;
             this.uc_Evenement1.Size = new System.Drawing.Size(298, 150);
             this.uc_Evenement1.TabIndex = 0;
             this.uc_Evenement1.TailleGraduationHorizontale = 0.5D;
@@ -437,7 +437,7 @@
             this.uc_PopulationFileAttente1.Location = new System.Drawing.Point(5, 6);
             this.uc_PopulationFileAttente1.Margin = new System.Windows.Forms.Padding(5);
             this.uc_PopulationFileAttente1.Name = "uc_PopulationFileAttente1";
-            this.uc_PopulationFileAttente1.PixelParUT = 200;
+            this.uc_PopulationFileAttente1.PixelParUT = 3600;
             this.uc_PopulationFileAttente1.Size = new System.Drawing.Size(463, 148);
             this.uc_PopulationFileAttente1.TabIndex = 0;
             this.uc_PopulationFileAttente1.TailleGraduationHorizontale = 0.5D;

@@ -116,9 +116,9 @@ namespace SimulationRemonteeSki
         {
             if (personneParDate == null)
                 personneParDate = new Dictionary<double, int>();
-            if (!personneParDate.ContainsKey(evennement.dateEvenement))
+            if (!personneParDate.ContainsKey(evennement.dateEvenement*60))
             {
-                this._date = evennement.dateEvenement;
+                this._date = evennement.dateEvenement*60;
                 this.Width = 30 + (int)Math.Round(_date, MidpointRounding.AwayFromZero) * PixelParUT;
 
                 if (personneParDate.Count > 0)

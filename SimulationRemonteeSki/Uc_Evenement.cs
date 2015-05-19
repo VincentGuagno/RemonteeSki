@@ -127,7 +127,7 @@ namespace SimulationRemonteeSki
                     stationParDate = new Dictionary<double, int>();
                 if (!stationParDate.ContainsKey(evennement.dateEvenement))
                 {
-                    this._date = evennement.dateEvenement;
+                    this._date = evennement.dateEvenement*60;
                     this.Width = 30 + (int)Math.Round(_date, MidpointRounding.AwayFromZero) * PixelParUT;
                     stationParDate.Add(evennement.dateEvenement, evennement.secteur);
                     Rafraichir();
