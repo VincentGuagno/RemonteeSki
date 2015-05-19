@@ -16,6 +16,13 @@ namespace SimulationRemonteeSki
         public MainForm()
         {
             InitializeComponent();
+
+            SimulationSystemeMultiples.tempsMoyenSortie = (double)(numCadenceSortie.Value/60);
+
+            SimulationSystemeMultiples.tempsMoyenEntree = (double)(numCadenceEntree.Value/60);
+
+            SimulationSystemeMultiples.nbStations = (int)numStations.Value;
+
             int index = dgvSortie.Rows.Add();
             dgvSortie.Rows[index].Cells["dgvNomValeur"].Value = "Moyenne de personnes dans la file d'attente";
             dgvSortie.Rows[index].Cells["dgvSimule"].Value = 20;
@@ -46,13 +53,17 @@ namespace SimulationRemonteeSki
             {
                 case EtatSimulation.Arret:
                     uc_PopulationFileAttente1.Effacer();
-                    //SimulationSystemeMultiples.EffacerSimulation();
+                    SimulationSystemeMultiples.EffacerSimulation();
+                    SimulationSystemeMultiples.Init();
                     rtbHistorique.Clear();
                     timerIntervalle.Enabled = true;
                     button1.Text = "Stopper la simulation";
                     _etatSimulation = EtatSimulation.Lecture;
                     dtpDebut.Enabled = false;
                     dtpFin.Enabled = false;
+                    numCadenceSortie.Enabled = false;
+                    numCadenceEntree.Enabled = false;
+                    numStations.Enabled = false;
                     break;
                 case EtatSimulation.Lecture:
                     timerIntervalle.Enabled = false;
@@ -99,14 +110,19 @@ namespace SimulationRemonteeSki
             Pause
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void numCadenceSortie_ValueChanged(object sender, EventArgs e)
         {
-
+            SimulationSystemeMultiples.tempsMoyenSortie = (double)(1/numCadenceSortie.Value);
         }
 
-        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        private void numCadenceEntree_ValueChanged(object sender, EventArgs e)
         {
+            SimulationSystemeMultiples.tempsMoyenEntree = (double)(1 / numCadenceEntree.Value);
+        }
 
+        private void numStations_ValueChanged(object sender, EventArgs e)
+        {
+            SimulationSystemeMultiples.nbStations = (int)numStations.Value;
         }
     }
 }

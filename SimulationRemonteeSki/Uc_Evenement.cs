@@ -123,15 +123,15 @@ namespace SimulationRemonteeSki
         }
         public void AjoutEvenement(StructureEvenement evennement)
         {
-            if (this._date < evennement.dateEvenement)
-            {
                 if (stationParDate == null)
                     stationParDate = new Dictionary<double, int>();
-                this._date = evennement.dateEvenement;
-                this.Width = 30 + (int)Math.Round(_date, MidpointRounding.AwayFromZero) * PixelParUT;
-                stationParDate.Add(evennement.dateEvenement, evennement.secteur);
-                Rafraichir();
-            }
+                if (!stationParDate.ContainsKey(evennement.dateEvenement))
+                {
+                    this._date = evennement.dateEvenement;
+                    this.Width = 30 + (int)Math.Round(_date, MidpointRounding.AwayFromZero) * PixelParUT;
+                    stationParDate.Add(evennement.dateEvenement, evennement.secteur);
+                    Rafraichir();
+                }
         }
         internal void Effacer()
         {

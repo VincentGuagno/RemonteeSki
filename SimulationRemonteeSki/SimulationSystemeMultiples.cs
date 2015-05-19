@@ -9,13 +9,14 @@ namespace SimulationRemonteeSki
     class SimulationSystemeMultiples
     {
         static Random rand;
-        static int nbStations = 2;
+        public static int nbStations { get; set; } // 2 nombre de station
+        public static double tempsMoyenEntree { get; set; } // 3 Temps moyen d'arrivée
+        public static double tempsMoyenSortie { get; set; } // 4 Temps de service moyen
+
         static double dateDeFin = 1.0e7;
-        static double tempsMoyenEntree = 3.0; // Temps moyen d'arrivée
-        static double tempsMoyenSortie = 4.0; // Temps de service moyen
         static double temps = 0.0; // Temps actuel
         static double dateEntree; // Tableau des temps avant le prochain évènement d'entrée 
-        static Dictionary<int, double> dateSortie = new Dictionary<int, double>() { { 1, 0.5 }, { 2, 1 }}; // Temps avant le prochain évènement de sortie
+        static Dictionary<int, double> dateSortie; // Temps avant le prochain évènement de sortie
         static long nbFileAttente = 0; // Nombre de personnes dans la file d'attente
         static double nbSortieSysteme = 0.0; // Nombre de personnes sortie du système
         static double aireNbPersonneSysteme = 0.0; // Nombre de personne dans le système
@@ -25,11 +26,24 @@ namespace SimulationRemonteeSki
         static double nombrePersonnesMoyen; // Nombre moyen de personne dans le système
         static double tempsMoyenSysteme; //Temps moyen passé dans le système
 
-        public static StructureEvenement Simulation()
+        public static void Init()
         {
-            StructureEvenement evenementSimule = new StructureEvenement();
             if (rand == null)
                 rand = new Random();
+            dateSortie = new Dictionary<int, double>();
+            for (int i = 1;i<nbStations+1;i++)
+            {
+                //si deux station
+                //premiere sortie de la station 1 à tempsMoyenSortie
+                //première sortie de la station 2 à tempsMoyenSortie+1/2tempsMoyenSortie
+                dateSortie.Add(i,tempsMoyenSortie+(tempsMoyenSortie/nbStations*(i-1)));
+            }
+        }
+
+        public static StructureEvenement Simulation()
+        {
+
+            StructureEvenement evenementSimule = new StructureEvenement();
 
             {
                 KeyValuePair<int, double> dateSortieMin;
@@ -76,6 +90,13 @@ namespace SimulationRemonteeSki
             aireNbPersonneSysteme = aireNbPersonneSysteme + nbFileAttente * (temps - tempsDernierEvenement);
             nbFileAttente++;
             tempsDernierEvenement = temps;
+
+            for (int i=1;i<nbStations+1;i++ )
+            {
+                while (dateSortie[i]<temps)
+                    dateSortie[i] += tempsMoyenSortie;
+            }
+
             dateEntree = temps + expntl(tempsMoyenEntree);
             return new StructureEvenement(0, temps, 1);
 
@@ -91,6 +112,17 @@ namespace SimulationRemonteeSki
             }
             while ((z == 0) || (z == 1));
             return (-x * Math.Log(z));
+        }
+
+        internal static void EffacerSimulation()
+        {
+            dateDeFin = 0;
+            temps = 0;
+            nbFileAttente = 0;
+            nbSortieSysteme = 0;
+            tempsDernierEvenement = 0;
+            nombrePersonnesMoyen = 0;
+            tempsMoyenSysteme = 0;
         }
     }
 }

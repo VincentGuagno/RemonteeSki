@@ -30,11 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.gpbParametresEntree = new System.Windows.Forms.GroupBox();
+            this.numStations = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numCadenceEntree = new System.Windows.Forms.NumericUpDown();
+            this.numCadenceSortie = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFin = new System.Windows.Forms.DateTimePicker();
@@ -51,18 +53,17 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pnScroll2 = new System.Windows.Forms.Panel();
-            this.uc_Evenement1 = new SimulationRemonteeSki.Uc_Evenement();
             this.panel3 = new System.Windows.Forms.Panel();
             this.pnScroll = new System.Windows.Forms.Panel();
-            this.uc_PopulationFileAttente1 = new SimulationRemonteeSki.Uc_PopulationFileAttente();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rtbHistorique = new System.Windows.Forms.RichTextBox();
             this.timerIntervalle = new System.Windows.Forms.Timer(this.components);
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
+            this.uc_Evenement1 = new SimulationRemonteeSki.Uc_Evenement();
+            this.uc_PopulationFileAttente1 = new SimulationRemonteeSki.Uc_PopulationFileAttente();
             this.gpbParametresEntree.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numStations)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCadenceEntree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCadenceSortie)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSortie)).BeginInit();
             this.panel1.SuspendLayout();
@@ -73,18 +74,17 @@
             this.panel3.SuspendLayout();
             this.pnScroll.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
             // gpbParametresEntree
             // 
-            this.gpbParametresEntree.Controls.Add(this.numericUpDown3);
+            this.gpbParametresEntree.Controls.Add(this.numStations);
             this.gpbParametresEntree.Controls.Add(this.label5);
             this.gpbParametresEntree.Controls.Add(this.button1);
             this.gpbParametresEntree.Controls.Add(this.label4);
             this.gpbParametresEntree.Controls.Add(this.label3);
-            this.gpbParametresEntree.Controls.Add(this.numericUpDown2);
-            this.gpbParametresEntree.Controls.Add(this.numericUpDown1);
+            this.gpbParametresEntree.Controls.Add(this.numCadenceEntree);
+            this.gpbParametresEntree.Controls.Add(this.numCadenceSortie);
             this.gpbParametresEntree.Controls.Add(this.label2);
             this.gpbParametresEntree.Controls.Add(this.label1);
             this.gpbParametresEntree.Controls.Add(this.dtpFin);
@@ -100,6 +100,35 @@
             this.gpbParametresEntree.TabStop = false;
             this.gpbParametresEntree.Text = "Paramètres d\'entrées";
             // 
+            // numStations
+            // 
+            this.numStations.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.numStations.Location = new System.Drawing.Point(168, 117);
+            this.numStations.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numStations.Name = "numStations";
+            this.numStations.Size = new System.Drawing.Size(42, 25);
+            this.numStations.TabIndex = 12;
+            this.numStations.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numStations.ValueChanged += new System.EventHandler(this.numStations_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(13, 119);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(149, 19);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Nombre de stations :";
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(386, 129);
@@ -114,7 +143,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(205, 89);
+            this.label4.Location = new System.Drawing.Point(216, 89);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 19);
             this.label4.TabIndex = 9;
@@ -124,47 +153,49 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(205, 57);
+            this.label3.Location = new System.Drawing.Point(216, 57);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 19);
             this.label3.TabIndex = 8;
             this.label3.Text = "par heures";
             // 
-            // numericUpDown2
+            // numCadenceEntree
             // 
-            this.numericUpDown2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.numericUpDown2.Location = new System.Drawing.Point(157, 87);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.numCadenceEntree.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.numCadenceEntree.Location = new System.Drawing.Point(168, 87);
+            this.numCadenceEntree.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(42, 25);
-            this.numericUpDown2.TabIndex = 7;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.numCadenceEntree.Name = "numCadenceEntree";
+            this.numCadenceEntree.Size = new System.Drawing.Size(42, 25);
+            this.numCadenceEntree.TabIndex = 7;
+            this.numCadenceEntree.Value = new decimal(new int[] {
             300,
             0,
             0,
             0});
+            this.numCadenceEntree.ValueChanged += new System.EventHandler(this.numCadenceEntree_ValueChanged);
             // 
-            // numericUpDown1
+            // numCadenceSortie
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.numericUpDown1.Location = new System.Drawing.Point(157, 55);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numCadenceSortie.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.numCadenceSortie.Location = new System.Drawing.Point(168, 55);
+            this.numCadenceSortie.Maximum = new decimal(new int[] {
             1000,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(42, 25);
-            this.numericUpDown1.TabIndex = 6;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.numCadenceSortie.Name = "numCadenceSortie";
+            this.numCadenceSortie.Size = new System.Drawing.Size(42, 25);
+            this.numCadenceSortie.TabIndex = 6;
+            this.numCadenceSortie.Value = new decimal(new int[] {
             400,
             0,
             0,
             0});
+            this.numCadenceSortie.ValueChanged += new System.EventHandler(this.numCadenceSortie_ValueChanged);
             // 
             // label2
             // 
@@ -340,18 +371,6 @@
             this.pnScroll2.Size = new System.Drawing.Size(473, 164);
             this.pnScroll2.TabIndex = 0;
             // 
-            // uc_Evenement1
-            // 
-            this.uc_Evenement1.DefinitionVerticale = 6;
-            this.uc_Evenement1.Hauteur = 30;
-            this.uc_Evenement1.Location = new System.Drawing.Point(5, 4);
-            this.uc_Evenement1.Margin = new System.Windows.Forms.Padding(4);
-            this.uc_Evenement1.Name = "uc_Evenement1";
-            this.uc_Evenement1.PixelParUT = 20;
-            this.uc_Evenement1.Size = new System.Drawing.Size(150, 150);
-            this.uc_Evenement1.TabIndex = 0;
-            this.uc_Evenement1.TailleGraduationHorizontale = 2D;
-            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.pnScroll);
@@ -370,18 +389,6 @@
             this.pnScroll.Name = "pnScroll";
             this.pnScroll.Size = new System.Drawing.Size(473, 177);
             this.pnScroll.TabIndex = 2;
-            // 
-            // uc_PopulationFileAttente1
-            // 
-            this.uc_PopulationFileAttente1.DefinitionVerticale = 6;
-            this.uc_PopulationFileAttente1.Hauteur = 30;
-            this.uc_PopulationFileAttente1.Location = new System.Drawing.Point(5, 6);
-            this.uc_PopulationFileAttente1.Margin = new System.Windows.Forms.Padding(5);
-            this.uc_PopulationFileAttente1.Name = "uc_PopulationFileAttente1";
-            this.uc_PopulationFileAttente1.PixelParUT = 20;
-            this.uc_PopulationFileAttente1.Size = new System.Drawing.Size(463, 148);
-            this.uc_PopulationFileAttente1.TabIndex = 0;
-            this.uc_PopulationFileAttente1.TailleGraduationHorizontale = 2D;
             // 
             // groupBox2
             // 
@@ -411,35 +418,29 @@
             this.timerIntervalle.Interval = 500;
             this.timerIntervalle.Tick += new System.EventHandler(this.timerIntervalle_Tick);
             // 
-            // numericUpDown3
+            // uc_Evenement1
             // 
-            this.numericUpDown3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.numericUpDown3.Location = new System.Drawing.Point(157, 117);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(42, 25);
-            this.numericUpDown3.TabIndex = 12;
-            this.numericUpDown3.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
+            this.uc_Evenement1.DefinitionVerticale = 6;
+            this.uc_Evenement1.Hauteur = 30;
+            this.uc_Evenement1.Location = new System.Drawing.Point(5, 4);
+            this.uc_Evenement1.Margin = new System.Windows.Forms.Padding(4);
+            this.uc_Evenement1.Name = "uc_Evenement1";
+            this.uc_Evenement1.PixelParUT = 200;
+            this.uc_Evenement1.Size = new System.Drawing.Size(298, 150);
+            this.uc_Evenement1.TabIndex = 0;
+            this.uc_Evenement1.TailleGraduationHorizontale = 0.5D;
             // 
-            // label5
+            // uc_PopulationFileAttente1
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(13, 119);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(149, 19);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Nombre de stations :";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.uc_PopulationFileAttente1.DefinitionVerticale = 6;
+            this.uc_PopulationFileAttente1.Hauteur = 30;
+            this.uc_PopulationFileAttente1.Location = new System.Drawing.Point(5, 6);
+            this.uc_PopulationFileAttente1.Margin = new System.Windows.Forms.Padding(5);
+            this.uc_PopulationFileAttente1.Name = "uc_PopulationFileAttente1";
+            this.uc_PopulationFileAttente1.PixelParUT = 200;
+            this.uc_PopulationFileAttente1.Size = new System.Drawing.Size(463, 148);
+            this.uc_PopulationFileAttente1.TabIndex = 0;
+            this.uc_PopulationFileAttente1.TailleGraduationHorizontale = 0.5D;
             // 
             // MainForm
             // 
@@ -453,8 +454,9 @@
             this.Text = "Remontée de ski";
             this.gpbParametresEntree.ResumeLayout(false);
             this.gpbParametresEntree.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numStations)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCadenceEntree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCadenceSortie)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSortie)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -465,7 +467,6 @@
             this.panel3.ResumeLayout(false);
             this.pnScroll.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -490,8 +491,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numCadenceEntree;
+        private System.Windows.Forms.NumericUpDown numCadenceSortie;
         private System.Windows.Forms.RichTextBox rtbHistorique;
         private System.Windows.Forms.GroupBox groupBox3;
         private Uc_PopulationFileAttente uc_PopulationFileAttente1;
@@ -501,7 +502,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel pnScroll2;
         private Uc_Evenement uc_Evenement1;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown numStations;
         private System.Windows.Forms.Label label5;
     }
 }
