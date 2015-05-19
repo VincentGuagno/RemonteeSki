@@ -83,9 +83,6 @@ namespace SimulationRemonteeSki
                         }
 
                         evenementPrecedent = item;
-                        //Point pos1 = new Point(20 + ((this.Width - 40) / NombreClasse * i), this.Height - 20 - (int)(((double)(this.Height - 40)) * NombreValeurIntervalle[i] / ((double)Hauteur)));
-                        //Point taille = new Point(((this.Width - 40) / NombreClasse), (int)(((double)(this.Height - 40)) * NombreValeurIntervalle[i] / ((double)Hauteur)));
-                        //gr.FillRectangle(new SolidBrush(Color.OrangeRed), pos1.X, pos1.Y - 5, taille.X, taille.Y + 5);
                     }
                 }
 
@@ -125,7 +122,7 @@ namespace SimulationRemonteeSki
                 this.Width = 30 + (int)Math.Round(_date, MidpointRounding.AwayFromZero) * PixelParUT;
 
                 if (personneParDate.Count > 0)
-                    personneParDate.Add(_date, personneParDate.Last().Value + (evennement.secteur != 0 ? evennement.nombrePersonne : evennement.nombrePersonne * -1));
+                    personneParDate.Add(_date, personneParDate.Last().Value + (evennement.secteur == 0 ? evennement.nombrePersonne : evennement.nombrePersonne * -1));
                 else
                     personneParDate.Add(_date, evennement.nombrePersonne);
                 Rafraichir();

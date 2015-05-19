@@ -49,15 +49,17 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.pnScroll = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.rtbHistorique = new System.Windows.Forms.RichTextBox();
-            this.timerIntervalle = new System.Windows.Forms.Timer(this.components);
             this.panel4 = new System.Windows.Forms.Panel();
             this.pnScroll2 = new System.Windows.Forms.Panel();
             this.uc_Evenement1 = new SimulationRemonteeSki.Uc_Evenement();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnScroll = new System.Windows.Forms.Panel();
             this.uc_PopulationFileAttente1 = new SimulationRemonteeSki.Uc_PopulationFileAttente();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rtbHistorique = new System.Windows.Forms.RichTextBox();
+            this.timerIntervalle = new System.Windows.Forms.Timer(this.components);
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
             this.gpbParametresEntree.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -66,15 +68,18 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.panel4.SuspendLayout();
+            this.pnScroll2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pnScroll.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.pnScroll2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
             // 
             // gpbParametresEntree
             // 
+            this.gpbParametresEntree.Controls.Add(this.numericUpDown3);
+            this.gpbParametresEntree.Controls.Add(this.label5);
             this.gpbParametresEntree.Controls.Add(this.button1);
             this.gpbParametresEntree.Controls.Add(this.label4);
             this.gpbParametresEntree.Controls.Add(this.label3);
@@ -316,53 +321,6 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Processus";
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.pnScroll);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(3, 25);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(660, 177);
-            this.panel3.TabIndex = 1;
-            // 
-            // pnScroll
-            // 
-            this.pnScroll.AutoScroll = true;
-            this.pnScroll.Controls.Add(this.uc_PopulationFileAttente1);
-            this.pnScroll.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnScroll.Location = new System.Drawing.Point(0, 0);
-            this.pnScroll.Name = "pnScroll";
-            this.pnScroll.Size = new System.Drawing.Size(473, 177);
-            this.pnScroll.TabIndex = 2;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.rtbHistorique);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.groupBox2.Location = new System.Drawing.Point(0, 369);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(666, 245);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Historique";
-            // 
-            // rtbHistorique
-            // 
-            this.rtbHistorique.BackColor = System.Drawing.SystemColors.Control;
-            this.rtbHistorique.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.rtbHistorique.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rtbHistorique.Location = new System.Drawing.Point(3, 25);
-            this.rtbHistorique.Name = "rtbHistorique";
-            this.rtbHistorique.Size = new System.Drawing.Size(660, 217);
-            this.rtbHistorique.TabIndex = 0;
-            this.rtbHistorique.Text = "";
-            // 
-            // timerIntervalle
-            // 
-            this.timerIntervalle.Interval = 500;
-            this.timerIntervalle.Tick += new System.EventHandler(this.timerIntervalle_Tick);
-            // 
             // panel4
             // 
             this.panel4.Controls.Add(this.pnScroll2);
@@ -394,6 +352,25 @@
             this.uc_Evenement1.TabIndex = 0;
             this.uc_Evenement1.TailleGraduationHorizontale = 2D;
             // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.pnScroll);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(3, 25);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(660, 177);
+            this.panel3.TabIndex = 1;
+            // 
+            // pnScroll
+            // 
+            this.pnScroll.AutoScroll = true;
+            this.pnScroll.Controls.Add(this.uc_PopulationFileAttente1);
+            this.pnScroll.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnScroll.Location = new System.Drawing.Point(0, 0);
+            this.pnScroll.Name = "pnScroll";
+            this.pnScroll.Size = new System.Drawing.Size(473, 177);
+            this.pnScroll.TabIndex = 2;
+            // 
             // uc_PopulationFileAttente1
             // 
             this.uc_PopulationFileAttente1.DefinitionVerticale = 6;
@@ -405,6 +382,64 @@
             this.uc_PopulationFileAttente1.Size = new System.Drawing.Size(463, 148);
             this.uc_PopulationFileAttente1.TabIndex = 0;
             this.uc_PopulationFileAttente1.TailleGraduationHorizontale = 2D;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rtbHistorique);
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.groupBox2.Location = new System.Drawing.Point(0, 369);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(666, 245);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Historique";
+            // 
+            // rtbHistorique
+            // 
+            this.rtbHistorique.BackColor = System.Drawing.SystemColors.Control;
+            this.rtbHistorique.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rtbHistorique.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbHistorique.Location = new System.Drawing.Point(3, 25);
+            this.rtbHistorique.Name = "rtbHistorique";
+            this.rtbHistorique.Size = new System.Drawing.Size(660, 217);
+            this.rtbHistorique.TabIndex = 0;
+            this.rtbHistorique.Text = "";
+            // 
+            // timerIntervalle
+            // 
+            this.timerIntervalle.Interval = 500;
+            this.timerIntervalle.Tick += new System.EventHandler(this.timerIntervalle_Tick);
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.numericUpDown3.Location = new System.Drawing.Point(157, 117);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(42, 25);
+            this.numericUpDown3.TabIndex = 12;
+            this.numericUpDown3.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(13, 119);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(149, 19);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Nombre de stations :";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // MainForm
             // 
@@ -425,11 +460,12 @@
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.pnScroll2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.pnScroll.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.pnScroll2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -465,5 +501,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel pnScroll2;
         private Uc_Evenement uc_Evenement1;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.Label label5;
     }
 }

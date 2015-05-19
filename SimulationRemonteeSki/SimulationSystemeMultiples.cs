@@ -9,13 +9,13 @@ namespace SimulationRemonteeSki
     class SimulationSystemeMultiples
     {
         static Random rand;
-        static int nbStations = 3;
+        static int nbStations = 2;
         static double dateDeFin = 1.0e7;
         static double tempsMoyenEntree = 3.0; // Temps moyen d'arrivée
         static double tempsMoyenSortie = 4.0; // Temps de service moyen
         static double temps = 0.0; // Temps actuel
         static double dateEntree; // Tableau des temps avant le prochain évènement d'entrée 
-        static Dictionary<int, double> dateSortie = new Dictionary<int, double>() { { 1, 0.5 }, { 2, 1 }/*, { 3, 1.5 }, { 4, 2 }, { 5, 2.5 } */}; // Temps avant le prochain évènement de sortie
+        static Dictionary<int, double> dateSortie = new Dictionary<int, double>() { { 1, 0.5 }, { 2, 1 }}; // Temps avant le prochain évènement de sortie
         static long nbFileAttente = 0; // Nombre de personnes dans la file d'attente
         static double nbSortieSysteme = 0.0; // Nombre de personnes sortie du système
         static double aireNbPersonneSysteme = 0.0; // Nombre de personne dans le système
@@ -45,7 +45,7 @@ namespace SimulationRemonteeSki
                     evenementSimule = ProcessusSortie(dateSortieMin.Key);
                 else
                 {
-                    dateSortie[dateSortieMin.Key] = temps + tempsMoyenSortie; //TODO COMPRENDRE POURQUOI UN MEC PART TOUTES LES 4 ET S'EN FOUT DE LA SORTIE
+                    dateSortie[dateSortieMin.Key] = temps + tempsMoyenSortie;
                     evenementSimule = ProcessusEntree();
                 }
             }
@@ -59,7 +59,8 @@ namespace SimulationRemonteeSki
         private static StructureEvenement ProcessusSortie(int numStation)
         {
             dateSortie.TryGetValue(numStation, out temps);
-            aireNbPersonneSysteme = aireNbPersonneSysteme + nbFileAttente * (temps - tempsDernierEvenement); // Mise à jour de l'aire sous la courbe "aireNbPersonneSysteme"
+            // Mise à jour de l'aire sous la courbe "aireNbPersonneSysteme"
+            aireNbPersonneSysteme = aireNbPersonneSysteme + nbFileAttente * (temps - tempsDernierEvenement); 
             nbFileAttente--;
             tempsDernierEvenement = temps;
             nbSortieSysteme++;
@@ -71,7 +72,8 @@ namespace SimulationRemonteeSki
         private static StructureEvenement ProcessusEntree()
         {
             temps = dateEntree;
-            aireNbPersonneSysteme = aireNbPersonneSysteme + nbFileAttente * (temps - tempsDernierEvenement); // Mise à jour de l'aire sous la courbe "aireNbPersonneSysteme"
+            // Mise à jour de l'aire sous la courbe "aireNbPersonneSysteme"
+            aireNbPersonneSysteme = aireNbPersonneSysteme + nbFileAttente * (temps - tempsDernierEvenement);
             nbFileAttente++;
             tempsDernierEvenement = temps;
             dateEntree = temps + expntl(tempsMoyenEntree);
@@ -90,25 +92,5 @@ namespace SimulationRemonteeSki
             while ((z == 0) || (z == 1));
             return (-x * Math.Log(z));
         }
-
-        /*regarde si date d'entrée > à une des dates de sorties pour les stations
-        static void tuTiresOuTuPointes (int dateEntree) 
-        {
-            KeyValuePair<int, double> dateSortieMin;
-            dateSortieMin = dateSortie.First();
-            foreach(var item in dateSortie)
-            {
-                if (item.Value < dateSortieMin.Value)
-                {
-                    dateSortieMin = item;
-                }
-            }
-                if (dateEntree > dateSortieMin.Value || nbFileAttente >0)
-                    ProcessusSortie(dateSortieMin.Key);
-                else
-                    ProcessusEntree();
-        }
-        
-        //tableau de stations avec les dates des prochains évènements de sortie*/
     }
 }
