@@ -105,10 +105,10 @@ namespace SimulationRemonteeSki
             dgvSortie.Rows[indexTableau["AttenteMoyen"]].Cells["dgvSimule"].Value = SimulationSystemeMultiples.tempsMoyenSysteme;
 
             dgvSortie.Rows[indexTableau["ArriveeMoyenne"]].Cells["dgvCalcule"].Value = 300;
-            dgvSortie.Rows[indexTableau["ArriveeMoyenne"]].Cells["dgvSimule"].Value = SimulationSystemeMultiples.nbEntreeMoyenne/60;
+            dgvSortie.Rows[indexTableau["ArriveeMoyenne"]].Cells["dgvSimule"].Value = SimulationSystemeMultiples.nbEntreeMoyenne;
 
             dgvSortie.Rows[indexTableau["SortieMoyenne"]].Cells["dgvCalcule"].Value = 400;
-            dgvSortie.Rows[indexTableau["SortieMoyenne"]].Cells["dgvSimule"].Value = SimulationSystemeMultiples.nbSortieMoyenne/60;
+            dgvSortie.Rows[indexTableau["SortieMoyenne"]].Cells["dgvSimule"].Value = SimulationSystemeMultiples.nbSortieMoyenne;
         }
 
         private void FinAnimation()
@@ -127,17 +127,27 @@ namespace SimulationRemonteeSki
 
         private void numCadenceSortie_ValueChanged(object sender, EventArgs e)
         {
-            SimulationSystemeMultiples.tempsSortie = (double)(1/numCadenceSortie.Value);
+            SimulationSystemeMultiples.tempsSortie = (double)(1/numCadenceSortie.Value/60);
         }
 
         private void numCadenceEntree_ValueChanged(object sender, EventArgs e)
         {
-            SimulationSystemeMultiples.tempsMoyenEntree = (double)(1 / numCadenceEntree.Value);
+            SimulationSystemeMultiples.tempsMoyenEntree = (double)(1 / numCadenceEntree.Value/60);
         }
 
         private void numStations_ValueChanged(object sender, EventArgs e)
         {
             SimulationSystemeMultiples.nbStations = (int)numStations.Value;
+        }
+
+        private void pnScroll_Scroll(object sender, ScrollEventArgs e)
+        {
+            pnScroll2.HorizontalScroll.Value = pnScroll.HorizontalScroll.Value;
+        }
+
+        private void pnScroll2_Scroll(object sender, ScrollEventArgs e)
+        {
+            pnScroll.HorizontalScroll.Value = pnScroll2.HorizontalScroll.Value;
         }
     }
 }

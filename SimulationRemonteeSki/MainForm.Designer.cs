@@ -370,6 +370,7 @@
             this.pnScroll2.Name = "pnScroll2";
             this.pnScroll2.Size = new System.Drawing.Size(473, 164);
             this.pnScroll2.TabIndex = 0;
+            this.pnScroll2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.pnScroll2_Scroll);
             // 
             // panel3
             // 
@@ -389,6 +390,7 @@
             this.pnScroll.Name = "pnScroll";
             this.pnScroll.Size = new System.Drawing.Size(473, 177);
             this.pnScroll.TabIndex = 2;
+            this.pnScroll.Scroll += new System.Windows.Forms.ScrollEventHandler(this.pnScroll_Scroll);
             // 
             // groupBox2
             // 
@@ -425,22 +427,23 @@
             this.uc_Evenement1.Location = new System.Drawing.Point(5, 4);
             this.uc_Evenement1.Margin = new System.Windows.Forms.Padding(4);
             this.uc_Evenement1.Name = "uc_Evenement1";
-            this.uc_Evenement1.PixelParUT = 3600;
-            this.uc_Evenement1.Size = new System.Drawing.Size(298, 150);
+            this.uc_Evenement1.PixelParUT = 140;
+            this.uc_Evenement1.Size = new System.Drawing.Size(439, 150);
             this.uc_Evenement1.TabIndex = 0;
-            this.uc_Evenement1.TailleGraduationHorizontale = 0.5D;
+            this.uc_Evenement1.TailleGraduationHorizontale = 1D;
             // 
             // uc_PopulationFileAttente1
             // 
-            this.uc_PopulationFileAttente1.DefinitionVerticale = 6;
-            this.uc_PopulationFileAttente1.Hauteur = 30;
+            this.uc_PopulationFileAttente1.DefinitionVerticale = 8;
+            this.uc_PopulationFileAttente1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.uc_PopulationFileAttente1.Hauteur = 10;
             this.uc_PopulationFileAttente1.Location = new System.Drawing.Point(5, 6);
             this.uc_PopulationFileAttente1.Margin = new System.Windows.Forms.Padding(5);
             this.uc_PopulationFileAttente1.Name = "uc_PopulationFileAttente1";
-            this.uc_PopulationFileAttente1.PixelParUT = 3600;
-            this.uc_PopulationFileAttente1.Size = new System.Drawing.Size(463, 148);
+            this.uc_PopulationFileAttente1.PixelParUT = 140;
+            this.uc_PopulationFileAttente1.Size = new System.Drawing.Size(439, 148);
             this.uc_PopulationFileAttente1.TabIndex = 0;
-            this.uc_PopulationFileAttente1.TailleGraduationHorizontale = 0.5D;
+            this.uc_PopulationFileAttente1.TailleGraduationHorizontale = 1D;
             // 
             // MainForm
             // 

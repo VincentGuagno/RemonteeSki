@@ -19,7 +19,6 @@ namespace SimulationRemonteeSki
         static double nbSortieSysteme = 0.0; // Nombre de personnes sortie du système
         static double aireNbPersonneSysteme = 0.0; // Nombre de personne dans le système
         static double tempsDernierEvenement = temps; // Date du dernier evenement
-        static double tempsDernierTraitement; // Date de dernier traitement
         static double debit; // Débit
         static double nombrePersonnesMoyen; // Nombre moyen de personne dans le système
         static double tempsMoyenSysteme; //Temps moyen passé dans le système

@@ -12,8 +12,11 @@ namespace SimulationRemonteeSki
         public static int nbStations { get; set; } // 2 nombre de station
         public static double tempsMoyenEntree { get; set; } // 3 Temps moyen d'arrivée
         public static double tempsSortie { get; set; } // 4 Temps de service moyen
+        public static double nombrePersonnesMoyen { get; private set; } // Nombre moyen de personne dans le système
+        public static double tempsMoyenSysteme { get; private set; } //Temps moyen passé dans le système
+        public static double nbSortieMoyenne { get; private set; } //Temps moyen passé dans le système
+        public static double nbEntreeMoyenne { get; private set; } //Temps moyen passé dans le système
 
-        static double dateDeFin = 1.0e7;
         static double temps = 0.0; // Temps actuel
         static double dateEntree; // Tableau des temps avant le prochain évènement d'entrée 
         static Dictionary<int, double> dateSortie; // Temps avant le prochain évènement de sortie
@@ -23,11 +26,6 @@ namespace SimulationRemonteeSki
         static double aireNbPersonneSysteme = 0.0; // Nombre de personne dans le système
         static double tempsDernierEvenement = temps; // Date du dernier evenement
         static double debit; // Débit
-
-        public static double nombrePersonnesMoyen { get; private set; } // Nombre moyen de personne dans le système
-        public static double tempsMoyenSysteme { get; private set; } //Temps moyen passé dans le système
-        public static double nbSortieMoyenne { get; private set; } //Temps moyen passé dans le système
-        public static double nbEntreeMoyenne { get; private set; } //Temps moyen passé dans le système
 
         public static void Init()
         {
@@ -68,10 +66,10 @@ namespace SimulationRemonteeSki
             }
 
             debit = nbSortieSysteme / (temps/60); // Debit de sortie
-            nombrePersonnesMoyen = aireNbPersonneSysteme / (temps / 60); // Moyenne du nombre de personne dans le système
+            nombrePersonnesMoyen = aireNbPersonneSysteme / (temps/60); // Moyenne du nombre de personne dans le système
             tempsMoyenSysteme = nombrePersonnesMoyen / debit; // Temps moyen passé dans le système
-            nbSortieMoyenne = nbSortieSysteme / temps ;
-            nbEntreeMoyenne = nbEntreeSysteme / temps ;
+            nbSortieMoyenne = nbSortieSysteme / temps/60 ;
+            nbEntreeMoyenne = nbEntreeSysteme / temps/60 ;
             return evenementSimule;
         }
 
@@ -84,7 +82,7 @@ namespace SimulationRemonteeSki
             tempsDernierEvenement = temps;
             nbSortieSysteme++;
             dateSortie[numStation] = temps + tempsSortie;
-            return new StructureEvenement(numStation, temps, 1);
+            return new StructureEvenement(numStation, temps*3600, 1);
 
         }
 
@@ -104,7 +102,7 @@ namespace SimulationRemonteeSki
             }
 
             dateEntree = temps + expntl(tempsMoyenEntree);
-            return new StructureEvenement(0, temps, 1);
+            return new StructureEvenement(0, temps*3600, 1);
 
         }
 
@@ -122,7 +120,6 @@ namespace SimulationRemonteeSki
 
         internal static void EffacerSimulation()
         {
-            dateDeFin = 0;
             temps = 0;
             nbFileAttente = 0;
             nbSortieSysteme = 0;
