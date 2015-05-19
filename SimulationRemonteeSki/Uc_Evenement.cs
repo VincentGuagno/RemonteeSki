@@ -69,6 +69,7 @@ namespace SimulationRemonteeSki
                     Pen yellowPen = new Pen(Color.Yellow, 1);
                     Pen violetPen = new Pen(Color.Violet, 1);
                     Pen OrangePen = new Pen(Color.Orange, 1);
+                    Pen mauvePen = new Pen(Color.FromArgb(204, 153, 255));
                     //Dessin des formes de la population
                     foreach (var item in stationParDate)
                     {

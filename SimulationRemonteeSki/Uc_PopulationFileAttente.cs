@@ -116,17 +116,21 @@ namespace SimulationRemonteeSki
         {
             if (personneParDate == null)
                 personneParDate = new Dictionary<double, int>();
-            if (!personneParDate.ContainsKey(evennement.dateEvenement))
+            this._date = evennement.dateEvenement;
+            this.Width = 30 + (int)Math.Round(_date * PixelParUT, MidpointRounding.AwayFromZero);
+            if (personneParDate.ContainsKey(evennement.dateEvenement))
             {
-                this._date = evennement.dateEvenement;
-                this.Width = 30 + (int)Math.Round(_date * PixelParUT, MidpointRounding.AwayFromZero);
-
+                personneParDate[evennement.dateEvenement] += (evennement.secteur == 0 ? evennement.nombrePersonne : evennement.nombrePersonne * -1);
+            }
+            else 
+            {
                 if (personneParDate.Count > 0)
                     personneParDate.Add(_date, personneParDate.Last().Value + (evennement.secteur == 0 ? evennement.nombrePersonne : evennement.nombrePersonne * -1));
                 else
                     personneParDate.Add(_date, evennement.nombrePersonne);
-                Rafraichir();
             }
+
+            Rafraichir();
         }
 
         internal void Effacer()

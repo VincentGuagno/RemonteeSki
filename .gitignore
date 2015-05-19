@@ -45,3 +45,12 @@ Network Trash Folder
 Temporary Items
 .apdisk
 SimulationRemonteeSki.rar
+*.exe
+*.exe
+SimulationRemonteeSki/bin/Debug/SimulationRemonteeSki.exe
+*.pdb
+*.cache
+*.pdb
+*.exe
+SimulationRemonteeSki/obj/Debug/SimulationRemonteeSki.exe
+*.pdb
