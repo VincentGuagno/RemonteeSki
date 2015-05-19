@@ -101,10 +101,11 @@ namespace SimulationRemonteeSki
             decimal lambda = numCadenceEntree.Value;
             decimal mu = numCadenceSortie.Value;
             decimal temp = mu - lambda;
+            decimal ro = lambda / mu;
             dgvSortie.Rows[indexTableau["MoyenneFile"]].Cells["dgvCalcule"].Value = ((lambda * lambda) / (2 * mu * temp)) / numStations.Value;
             dgvSortie.Rows[indexTableau["MoyenneFile"]].Cells["dgvSimule"].Value = SimulationSystemeMultiples.nombrePersonnesMoyen;
 
-            dgvSortie.Rows[indexTableau["AttenteMoyen"]].Cells["dgvCalcule"].Value = (lambda / (2 * mu * temp))*60;
+            dgvSortie.Rows[indexTableau["AttenteMoyen"]].Cells["dgvCalcule"].Value = (ro / (2 * mu * (1 - ro)))*60*numStations.Value;
             dgvSortie.Rows[indexTableau["AttenteMoyen"]].Cells["dgvSimule"].Value = SimulationSystemeMultiples.tempsMoyenSysteme;
 
             dgvSortie.Rows[indexTableau["ArriveeMoyenne"]].Cells["dgvCalcule"].Value = numCadenceEntree.Value;
