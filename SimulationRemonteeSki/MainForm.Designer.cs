@@ -95,7 +95,7 @@
             this.gpbParametresEntree.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gpbParametresEntree.Location = new System.Drawing.Point(0, 0);
             this.gpbParametresEntree.Name = "gpbParametresEntree";
-            this.gpbParametresEntree.Size = new System.Drawing.Size(599, 172);
+            this.gpbParametresEntree.Size = new System.Drawing.Size(599, 200);
             this.gpbParametresEntree.TabIndex = 0;
             this.gpbParametresEntree.TabStop = false;
             this.gpbParametresEntree.Text = "Paramètres d\'entrées";
@@ -264,7 +264,7 @@
             this.groupBox1.Controls.Add(this.dgvSortie);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(0, 172);
+            this.groupBox1.Location = new System.Drawing.Point(0, 200);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(599, 442);
             this.groupBox1.TabIndex = 1;
@@ -326,7 +326,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(599, 614);
+            this.panel1.Size = new System.Drawing.Size(599, 642);
             this.panel1.TabIndex = 2;
             // 
             // panel2
@@ -336,7 +336,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(599, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(666, 614);
+            this.panel2.Size = new System.Drawing.Size(685, 642);
             this.panel2.TabIndex = 4;
             // 
             // groupBox3
@@ -347,7 +347,7 @@
             this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
             this.groupBox3.Location = new System.Drawing.Point(0, 0);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(666, 369);
+            this.groupBox3.Size = new System.Drawing.Size(685, 397);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Processus";
@@ -358,7 +358,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 202);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(660, 164);
+            this.panel4.Size = new System.Drawing.Size(679, 192);
             this.panel4.TabIndex = 2;
             // 
             // pnScroll2
@@ -368,7 +368,7 @@
             this.pnScroll2.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnScroll2.Location = new System.Drawing.Point(0, 0);
             this.pnScroll2.Name = "pnScroll2";
-            this.pnScroll2.Size = new System.Drawing.Size(473, 164);
+            this.pnScroll2.Size = new System.Drawing.Size(473, 192);
             this.pnScroll2.TabIndex = 0;
             this.pnScroll2.Scroll += new System.Windows.Forms.ScrollEventHandler(this.pnScroll2_Scroll);
             // 
@@ -378,7 +378,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(3, 25);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(660, 177);
+            this.panel3.Size = new System.Drawing.Size(679, 177);
             this.panel3.TabIndex = 1;
             // 
             // pnScroll
@@ -397,9 +397,9 @@
             this.groupBox2.Controls.Add(this.rtbHistorique);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.groupBox2.Location = new System.Drawing.Point(0, 369);
+            this.groupBox2.Location = new System.Drawing.Point(0, 397);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(666, 245);
+            this.groupBox2.Size = new System.Drawing.Size(685, 245);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Historique";
@@ -411,7 +411,7 @@
             this.rtbHistorique.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtbHistorique.Location = new System.Drawing.Point(3, 25);
             this.rtbHistorique.Name = "rtbHistorique";
-            this.rtbHistorique.Size = new System.Drawing.Size(660, 217);
+            this.rtbHistorique.Size = new System.Drawing.Size(679, 217);
             this.rtbHistorique.TabIndex = 0;
             this.rtbHistorique.Text = "";
             // 
@@ -430,7 +430,7 @@
             this.uc_Evenement1.PixelParUT = 140;
             this.uc_Evenement1.Size = new System.Drawing.Size(439, 150);
             this.uc_Evenement1.TabIndex = 0;
-            this.uc_Evenement1.TailleGraduationHorizontale = 1D;
+            this.uc_Evenement1.TailleGraduationHorizontale = 0.25D;
             // 
             // uc_PopulationFileAttente1
             // 
@@ -443,14 +443,14 @@
             this.uc_PopulationFileAttente1.PixelParUT = 140;
             this.uc_PopulationFileAttente1.Size = new System.Drawing.Size(439, 148);
             this.uc_PopulationFileAttente1.TabIndex = 0;
-            this.uc_PopulationFileAttente1.TailleGraduationHorizontale = 1D;
+            this.uc_PopulationFileAttente1.TailleGraduationHorizontale = 0.25D;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1265, 614);
+            this.ClientSize = new System.Drawing.Size(1284, 642);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "MainForm";
